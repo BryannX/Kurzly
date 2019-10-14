@@ -1,0 +1,14 @@
+# Routes
+# This file defines all application routes
+# ~~~~
+
+
+GET     /                           controllers.UrlController.index
+
+PUT     /shorten/*originalUrl       controllers.UrlController.shortenUrl(originalUrl: String)
+
+GET     /geturl/:shortUrl           controllers.UrlController.getOriginalUrl(shortUrl: String)
+
+GET     /go/:shortUrl               controllers.UrlController.redirect(shortUrl: String)
+
+DELETE  /delete/:shortUrl           controllers.UrlController.deleteUrl(shortUrl: String)
