@@ -7,7 +7,7 @@ The focus of the design and implementation was:
 - Reactiviteness and Scalability of the application through Futures and asynchronous operation.
 - Data Persistence across multiple backend service instances.
 
-## Tech/framework used
+## Tech Stack
 <b>Built with</b>
 - [Scala](https://www.scala-lang.org/)
 - [Play! Framework](https://www.playframework.com/) 
