@@ -1,0 +1,282 @@
+{
+	"info": {
+		"_postman_id": "2825595b-e033-43ef-ad63-8c9fe0007ea8",
+		"name": "URL Shortener API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Home",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5672f178-a3b1-4f71-bf13-7f89defed920",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Welcome Message Returned\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.Message).to.eql(\"Welcome to the URL Shortener Service!\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{domain_prefix}}/",
+					"host": [
+						"{{domain_prefix}}"
+					],
+					"path": [
+						""
+					]
+				},
+				"description": "Calls the basic entry point of the API \"/\" and should return a Welcome Message."
+			},
+			"response": []
+		},
+		{
+			"name": "Shorten URL",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "4e99d55d-e3f2-47fa-8648-0c80bc9ce62a",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "3dbb42de-e7eb-478a-9ef5-bc1c58a1efc0",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"var domainPrefix = pm.environment.get(\"domain_prefix\");",
+							"var domainPrefixGo = pm.environment.get(\"domain_prefix_go\");",
+							"",
+							"console.log(domainPrefix);",
+							"",
+							"",
+							"pm.test(\"Short Url Returned\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.shortUrl).to.have.string(domainPrefix);",
+							"    ",
+							"    var shortUrl = jsonData.shortUrl;",
+							"    var shortUrlSuffix = jsonData.shortUrl.substring(domainPrefixGo.length+1);",
+							"    ",
+							"    pm.environment.set(\"short_url\", shortUrl);",
+							"    pm.environment.set(\"short_url_suffix\", shortUrlSuffix);",
+							"});",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{domain_prefix}}/shorten/{{originalUrl}}",
+					"host": [
+						"{{domain_prefix}}"
+					],
+					"path": [
+						"shorten",
+						"{{originalUrl}}"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": ""
+						}
+					]
+				},
+				"description": "Shortens a URL when appended to the API "
+			},
+			"response": []
+		},
+		{
+			"name": "Get Original Url",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "e7f41a43-0ead-465b-8329-f5cdd5a597a4",
+						"exec": [
+							"// var suffix = pm.environment.get(\"short_url_suffix\");",
+							"",
+							"// pm.environment.set(\"short_url_suffix\", suffix);",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "2816ecf3-a217-4d85-9f17-1eeedbf41631",
+						"exec": [
+							"var returnedUrl = pm.environment.get(\"original_url\");",
+							"",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Original Url Returned\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(pm.iterationData.get(\"originalUrl\")).to.have.string(jsonData.originalUrl);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{domain_prefix}}/geturl/{{short_url_suffix}}",
+					"host": [
+						"{{domain_prefix}}"
+					],
+					"path": [
+						"geturl",
+						"{{short_url_suffix}}"
+					]
+				},
+				"description": "Returns original url when provided with the short url suffix"
+			},
+			"response": []
+		},
+		{
+			"name": "Redirect URL",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ecaaa78f-17d0-42f7-9894-dd8f802c0cb3",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{domain_prefix}}/go/{{short_url_suffix}}",
+					"host": [
+						"{{domain_prefix}}"
+					],
+					"path": [
+						"go",
+						"{{short_url_suffix}}"
+					]
+				},
+				"description": "Redirects from short url suffix to the original url web page"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete URL ",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6f45f394-6a9a-44e4-a6a9-ded7df9cba37",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Rows Affected Returned\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.RowsAffected).to.eql(1);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{domain_prefix}}/delete/{{short_url_suffix}}",
+					"host": [
+						"{{domain_prefix}}"
+					],
+					"path": [
+						"delete",
+						"{{short_url_suffix}}"
+					]
+				},
+				"description": "Deletes URL resource from URL Database"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "d6abe92f-5ff7-400f-b0c7-e93e3d4372eb",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "4030a960-7aae-4de9-bb7d-ca01644be3cd",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
