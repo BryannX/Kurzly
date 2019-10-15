@@ -47,7 +47,7 @@ http://localhost:9000/go/f
 * Persists data with `Postgresql` database.
 
 ## Algorithm
-The algorithm for creating the short url leverages the sequential index provided by the database to create a short url id. The index returned by the database upon insertion of the url into the database is reiteratively moded by 62 into a list which is then mapped with a **base62 conversion** into an ASCII character from the subset `[a-z,A-Z,0-9]`. The returned character list forms the short url id.
+The algorithm for creating the short url leverages the sequential index provided by the database to create a short url id. The index returned by the database upon insertion of the url into the database is reiteratively moded by 62 into a list which is then mapped with a **base62 conversion** to an ASCII character from the subset `[a-z,A-Z,0-9]`. The returned character list forms the short url id.
 
 ## Requirements
 - Docker
