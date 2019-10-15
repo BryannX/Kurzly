@@ -4,7 +4,7 @@ Create short and simple URLs that are easy to use.
 ## Design and Implementation
 The focus of the design and implementation was:
 - Uniqueness and brevity of the short url ids.
-- Reactiviteness and Scalability of the application through Futures and asynchronous operation.
+- Reactivity and Scalability of the application through Futures and asynchronous operation.
 - Data Persistence across multiple backend service instances.
 
 ## Tech Stack
