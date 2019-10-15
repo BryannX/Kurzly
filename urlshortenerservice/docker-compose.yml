@@ -11,7 +11,6 @@ services:
       - 5433:5432
     volumes:
       - postgres-data:/var/lib/postgresql/data
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
   urlshortener-service:
     image: bryannx/urlshortener
     command: bin/urlshortenerservice -Dplay.http.secret.key=6Z<_Xo^9QUAspP`rE6v@KF[KofLo`bLJs73c8`84SdYeLcMDCu_LdLoV;os@x;wj
