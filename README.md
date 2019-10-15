@@ -1,25 +1,60 @@
-# Coding Challenge
+# URL Shortener Service
+Create short and simple URLs that are easy to use.
 
-URL shortener HTTP service.
+## Design and Implementation
+The focus of the design and implementation was:
+- Uniqueness and brevity of the short url ids.
+- Reactiviteness and Scalability of the application through Futures and asynchronous operation.
+- Data Persistence across multiple backend service instances.
 
-## Problem Specification
+## Tech/framework used
+<b>Built with</b>
+- [Scala](https://www.scala-lang.org/)
+- [Play! Framework](https://www.playframework.com/) 
+- [PostgresSQL](https://www.postgresql.org/) 
+- [Slick](http://slick.lightbend.com/) 
+- [Docker](https://www.docker.com/)
+- [Postman](https://www.getpostman.com/)
 
-Design and implement a URL shortener HTTP service that fulfils the following criteria:
+## Run
+`cd urlshortenerservice/` to enter the app's main directory.
 
-* Provides an HTTP API to:
-  * Shorten a URL
-  * Redirect to the long URL from the shortened URL
-* Shortened URL requirements:
-  * The ID of the shortened URL needs to be unique (across past and concurrent requests, and multiple backend service instances)
-  * Optional: The ID of the shortened URL should be as short as possible (max. 8 characters long)
-  * Optional: The long/shortened URL mapping needs to be persisted and shouldn't be lost after a backend service restart
+```sh
+docker-compose up
+```
+This will start up the `api` and the `postgresql` database and expose the api port to host on `localhost:9000/`.
 
-## Assessment Criteria
+## Usage
+The following commands can be ran from a browser or an API client like `Postman`. For this example, we shall use the url `https://www.moia.io/en/how-it-works`.
 
-We expect well-structured, clean code without needless duplication. The solution should be automatically verified and follow best practices.
 
-What we will look at:
+```sh
+# Shorten url
+http://localhost:9000/shorten/https://www.moia.io/en/how-it-works
 
-* How clean your design and implementation is
-* How easy it is to understand and maintain your code
-* How you verify your software, whether by automated tests or otherwise
+# Return original url
+http://localhost:9000/geturl/f
+
+
+# Redirect to original url
+http://localhost:9000/go/f
+
+ ```
+
+## Features
+* Provides a unique id across past and concurrent requests, and multiple backend service instances.
+* ID length max is 6 characters offering over `2,000,000,000` unique addresses.
+* Uses asynchronous operation allowing the application to be reactive, scalable and concurrent.
+* Persists data with `Postgresql` database.
+
+## Algorithm
+The algorithm for creating the short url leverages the sequential index provided by the database to create a short url id. The index returned by the database upon insertion of the url into the database is reiteratively moded by 62 into a list which is then mapped with a **base62 conversion** into an ASCII character from the subset `[a-z,A-Z,0-9]`. The returned character list forms the short url id.
+
+## Requirements
+- Docker
+- Docker-Compose
+
+## Tests
+Automated API testing was conducted with Postman with test scripts and CSV files available in the `API Tests` folder. 
+
+
