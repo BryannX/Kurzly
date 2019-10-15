@@ -8,4 +8,4 @@ create table urls (
 
 # --- !Downs
 
-drop table urls;
+drop table urls if exists;
