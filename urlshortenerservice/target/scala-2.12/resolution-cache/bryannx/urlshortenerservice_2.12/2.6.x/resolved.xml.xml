@@ -4,7 +4,7 @@
 		module="urlshortenerservice_2.12"
 		revision="2.6.x"
 		status="integration"
-		publication="20191015041752"
+		publication="20191015044721"
 	>
 		<description>
 		URLShortenerService

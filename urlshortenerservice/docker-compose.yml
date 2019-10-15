@@ -1,8 +1,8 @@
 version: "3"
 services:
-  postgresdb:
+  postgres:
     image: postgres:alpine
-    container_name: postgresdb
+    container_name: postgres
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=password
@@ -10,18 +10,18 @@ services:
     ports:
       - 5433:5432
     volumes:
-      - postgresdb-data:/var/lib/postgresql/data
+      - postgres-data:/var/lib/postgresql/data
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
   urlshortener-service:
     image: bryannx/urlshortener
     command: bin/urlshortenerservice -Dplay.http.secret.key=6Z<_Xo^9QUAspP`rE6v@KF[KofLo`bLJs73c8`84SdYeLcMDCu_LdLoV;os@x;wj
     depends_on:
-      - postgresdb
+      - postgres
     ports:
       - 9000:9000
     volumes:
       - ./urlshortenerservice:/opt/urlshortenerservice
 volumes:
-  postgresdb-data:
+  postgres-data:
     driver: local
 

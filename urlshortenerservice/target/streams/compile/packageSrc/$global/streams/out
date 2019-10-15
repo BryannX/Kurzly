@@ -1,1 +1,27 @@
-[0m[[0m[0mdebug[0m] [0m[0mJar uptodate: /home/bryannx/Documents/MOIA/coding-challenge-brian-n/urlshortenerservice/target/scala-2.12/urlshortenerservice_2.12-2.6.x-sources.jar[0m
+[0m[[0m[0minfo[0m] [0m[0mPackaging /home/bryannx/Documents/MOIA/coding-challenge-brian-n/urlshortenerservice/target/scala-2.12/urlshortenerservice_2.12-2.6.x-sources.jar ...[0m
+[0m[[0m[0mdebug[0m] [0m[0mInput file mappings:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	utils/UrlShortener.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/bryannx/Documents/MOIA/coding-challenge-brian-n/urlshortenerservice/app/utils/UrlShortener.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	logback.xml[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/bryannx/Documents/MOIA/coding-challenge-brian-n/urlshortenerservice/conf/logback.xml[0m
+[0m[[0m[0mdebug[0m] [0m[0m	models/UrlResource.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/bryannx/Documents/MOIA/coding-challenge-brian-n/urlshortenerservice/app/models/UrlResource.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	messages[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/bryannx/Documents/MOIA/coding-challenge-brian-n/urlshortenerservice/conf/messages[0m
+[0m[[0m[0mdebug[0m] [0m[0m	application.conf[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/bryannx/Documents/MOIA/coding-challenge-brian-n/urlshortenerservice/conf/application.conf[0m
+[0m[[0m[0mdebug[0m] [0m[0m	models/UrlRepository.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/bryannx/Documents/MOIA/coding-challenge-brian-n/urlshortenerservice/app/models/UrlRepository.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	evolutions/default[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/bryannx/Documents/MOIA/coding-challenge-brian-n/urlshortenerservice/conf/evolutions/default[0m
+[0m[[0m[0mdebug[0m] [0m[0m	controllers/UrlController.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/bryannx/Documents/MOIA/coding-challenge-brian-n/urlshortenerservice/app/controllers/UrlController.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	evolutions[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/bryannx/Documents/MOIA/coding-challenge-brian-n/urlshortenerservice/conf/evolutions[0m
+[0m[[0m[0mdebug[0m] [0m[0m	evolutions/default/1.sql[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/bryannx/Documents/MOIA/coding-challenge-brian-n/urlshortenerservice/conf/evolutions/default/1.sql[0m
+[0m[[0m[0mdebug[0m] [0m[0m	utils/Config.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/bryannx/Documents/MOIA/coding-challenge-brian-n/urlshortenerservice/app/utils/Config.scala[0m
+[0m[[0m[0mdebug[0m] [0m[0m	routes[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /home/bryannx/Documents/MOIA/coding-challenge-brian-n/urlshortenerservice/conf/routes[0m
+[0m[[0m[0minfo[0m] [0m[0mDone packaging.[0m

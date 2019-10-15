@@ -4,7 +4,7 @@
 		module="urlshortenerservice$sources"
 		revision="2.6.x"
 		status="integration"
-		publication="20191015041755"
+		publication="20191015044723"
 	/>
 	<configurations>
 		<conf name="compile" visibility="public" description=""/>
