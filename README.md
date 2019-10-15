@@ -42,7 +42,7 @@ http://localhost:9000/go/f
 
 ## Features
 * Provides a unique id across past and concurrent requests, and multiple backend service instances.
-* ID length max is 6 characters offering over `2,000,000,000` unique addresses.
+* ID length max is 6 characters while still providing over `2,000,000,000` unique addresses.
 * Uses asynchronous operation allowing the application to be reactive, scalable and concurrent.
 * Persists data with `Postgresql` database.
 
