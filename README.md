@@ -57,4 +57,6 @@ The algorithm for creating the short url leverages the sequential index provided
 ## Tests
 Automated API testing was conducted with Postman with test scripts and CSV files available in the `API Tests` folder. 
 
+![POSTMAN_TEST](img/postman.png)
+
 
