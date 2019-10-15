@@ -35,7 +35,6 @@ http://localhost:9000/shorten/https://www.moia.io/en/how-it-works
 # Return original url
 http://localhost:9000/geturl/f
 
-
 # Redirect to original url
 http://localhost:9000/go/f
 
