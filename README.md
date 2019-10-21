@@ -1,11 +1,5 @@
-# URL Shortener Service
+# Kurzly
 Create short and simple URLs that are easy to use.
-
-## Design and Implementation
-The focus of the design and implementation was:
-- Uniqueness and brevity of the short url ids.
-- Reactivity and Scalability of the application through Futures and asynchronous operation.
-- Data Persistence across multiple backend service instances.
 
 ## Tech Stack
 <b>Built with</b>
@@ -25,12 +19,12 @@ docker-compose up
 This will start up the `api` and the `postgresql` database and expose the api port to host on `localhost:9000/`.
 
 ## Usage
-The following commands can be ran from a browser or an API client like `Postman`. For this example, we shall use the url `https://www.moia.io/en/how-it-works`.
+The following commands can be ran from a browser or an API client like `Postman`. For this example, we shall use the url `https://www.google.com`.
 
 
 ```sh
 # Shorten url
-http://localhost:9000/shorten/https://www.moia.io/en/how-it-works
+http://localhost:9000/shorten/https://www.google.com
 
 # Return original url
 http://localhost:9000/geturl/f
